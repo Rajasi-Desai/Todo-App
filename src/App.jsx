@@ -34,6 +34,11 @@ const App = () => {
     setTasks(sortedTasks);
   };
 
+  const addTask = (newTask) => {
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
+  }
+
   return (
     <div
       style={{
@@ -44,7 +49,7 @@ const App = () => {
       }}
     >
       <h2 style={{textAlign:"center"}}>To Do List</h2>
-      <TaskForm />
+      <TaskForm addTask={addTask} />
       <TaskControls 
         showOnlyIncomplete={showOnlyIncomplete}
         setShowOnlyIncomplete={setShowOnlyIncomplete}
