@@ -46,6 +46,11 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const removeTask = (id) => {
+    const updatedTasks = tasks.filter((t) => t.id !== id);
+    setTasks(updatedTasks);
+  }
+
   return (
     <div
       style={{
@@ -66,6 +71,7 @@ const App = () => {
         tasks={tasks} 
         showOnlyIncomplete={showOnlyIncomplete}
         toggleTaskDone={toggleTaskDone}
+        removeTask={removeTask}
       />
     </div>
   )

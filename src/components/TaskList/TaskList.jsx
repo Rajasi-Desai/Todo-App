@@ -1,7 +1,7 @@
 import TaskItem from "./TaskItem";
 import EditTaskForm from "./EditTaskForm";
 
-const TaskList = ({ tasks, showOnlyIncomplete, toggleTaskDone }) => {
+const TaskList = ({ tasks, showOnlyIncomplete, toggleTaskDone, removeTask }) => {
     return (
       <div>
         <ul>
@@ -23,6 +23,7 @@ const TaskList = ({ tasks, showOnlyIncomplete, toggleTaskDone }) => {
                 <TaskItem 
                   task={task} 
                   toggleTaskDone={toggleTaskDone}
+                  removeTask={removeTask}
                 />
               </li>
             ))
