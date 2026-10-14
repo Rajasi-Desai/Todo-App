@@ -1,15 +1,29 @@
 import TaskItem from "./TaskItem";
 import EditTaskForm from "./EditTaskForm";
 
-const TaskList = () => {
+const TaskList = ({ tasks }) => {
     return (
-        <div>
-            <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-            </ul>
-        </div>
+      <div>
+        <ul>
+          {
+            tasks.map((task) => (
+              <li 
+                key={task.id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "10px",
+                  borderBottom: "1px solid #ccc",
+                  gap: "10px",
+                }}
+              >
+                <TaskItem task={task} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     );
 };
 
