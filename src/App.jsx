@@ -1,7 +1,7 @@
 import { useState } from "react";
-import TaskForm from "./components/TaskForm";
-import TaskControls from "./components/TaskControls";
-import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm/TaskForm";
+import TaskControls from "./components/TaskControls/TaskControls";
+import TaskList from "./components/TaskList/TaskList";
 
 const App = () => {
   const [tasks, setTasks] = useState([
