@@ -2,6 +2,7 @@ import { useState } from "react";
 import TaskForm from "./components/TaskForm/TaskForm";
 import TaskControls from "./components/TaskControls/TaskControls";
 import TaskList from "./components/TaskList/TaskList";
+import "./App.css"
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -52,15 +53,8 @@ const App = () => {
   }
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily: "Arial",
-        maxWidth: "800px",
-        margin: "auto",
-      }}
-    >
-      <h2 style={{textAlign:"center"}}>To Do List</h2>
+    <div className="todo-container">
+      <h2>To Do List</h2>
       <TaskForm addTask={addTask} />
       <TaskControls 
         showOnlyIncomplete={showOnlyIncomplete}
