@@ -37,7 +37,14 @@ const App = () => {
   const addTask = (newTask) => {
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
-  }
+  };
+
+  const toggleTaskDone = (id) => {
+    const updatedTasks = tasks.map((task) => 
+      task.id === id ? {...task, done: !task.done} : task
+    );
+    setTasks(updatedTasks);
+  };
 
   return (
     <div
@@ -58,6 +65,7 @@ const App = () => {
       <TaskList 
         tasks={tasks} 
         showOnlyIncomplete={showOnlyIncomplete}
+        toggleTaskDone={toggleTaskDone}
       />
     </div>
   )
