@@ -1,0 +1,50 @@
+.task-item-container {
+    display: flex; 
+    align-items: center; 
+    flex-grow: 1;
+}
+
+input {
+    margin-right: 10px;
+}
+
+.text-item-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-item-priority {
+    background-color: #6f42c1;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-div {
+    display: flex; 
+    gap: 5px;
+}
+
+.edit-button {
+    border-radius: 50%;
+    background-color: #ffc107;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.trash-button {
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
