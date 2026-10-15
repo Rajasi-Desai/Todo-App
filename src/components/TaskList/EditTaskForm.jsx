@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { useState } from "react";
+import "./EditTaskForm.css"
 
 const EditTaskForm = ({ task, setEditingTaskId, updateTask }) => {
   const [editText, setEditText] = useState(task.text);
@@ -18,35 +19,18 @@ const EditTaskForm = ({ task, setEditingTaskId, updateTask }) => {
         type="text"
         value={editText}
         onChange={(e) => setEditText(e.target.value)}
-        style={{
-          flexGrow: 1,
-          padding: "5px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
+        className="edit-text"
       />
       <input
         type="number"
         min="1"
         value={editPriority}
         onChange={(e) => setEditPriority(Number(e.target.value))}
-        style={{
-          width: "50px",
-          padding: "5px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
+        className="edit-priority"
       />
       <button
         onClick={saveEdit}
-        style={{
-          borderRadius: "50%",
-          backgroundColor: "#28a745",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-        }}
+        className="save-button"
       >
         <Check size={16} />
       </button>
