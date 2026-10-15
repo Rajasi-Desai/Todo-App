@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
-import { use, useState } from "react";
+import { useState } from "react";
+import "./TaskForm.css"
 
 const TaskForm = ({ addTask }) => {
   const [newTask, setNewTask] = new useState("");
@@ -21,48 +22,27 @@ const TaskForm = ({ addTask }) => {
     }
   };
 
-  const inputStyle = {
-    padding: "8px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-  };
-
   return (
     <div>
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div className="task-form-container">
         <input 
           type="text" 
           placeholder="Enter new task"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          style={{
-            ...inputStyle,
-            flexGrow: 1,
-          }}
+          className="input-text"
         />
         <input 
           type="number" 
           min={1}
           value={newPriority}
           onChange={(e) => setNewPriority(Number(e.target.value))}
-          style={{
-            ...inputStyle,
-            width: "3.75rem",
-          }}
+          className="input-priority"
         />
       </div>
       <button
         onClick={handleSubmit}
-        style={{
-          display: "block",
-          margin: "20px auto 0",
-          borderRadius: "50%",
-          backgroundColor: "#007bff",
-          color: "white",
-          padding: "12px",
-          border: "none",
-          cursor: "pointer",
-        }}  
+        className="add-button"
       >
         <Plus size={20} />
       </button>

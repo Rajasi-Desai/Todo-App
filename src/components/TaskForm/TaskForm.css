@@ -1,0 +1,29 @@
+.task-form-container {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-text {
+    flex-grow: 1;
+}
+
+.input-priority {
+    width: 3.75rem;
+}
+
+.add-button {
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+}
