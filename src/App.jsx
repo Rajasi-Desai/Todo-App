@@ -3,28 +3,10 @@ import TaskForm from "./components/TaskForm/TaskForm";
 import TaskControls from "./components/TaskControls/TaskControls";
 import TaskList from "./components/TaskList/TaskList";
 import "./App.css"
+import { getStoredTasks, updateLocalStorage } from "./utils/localStorageUtils";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Buy groceries",
-      priority: 1,
-      done: true,
-    },
-    {
-      id: 2,
-      text: "Have a walk",
-      priority: 2,
-      done: false,
-    },
-    {
-      id: 3,
-      text: "Read a book",
-      priority: 3,
-      done: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(getStoredTasks);
 
   const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
 
@@ -33,11 +15,13 @@ const App = () => {
       .sort((a,b) => (a.priority - b.priority));
 
     setTasks(sortedTasks);
+    updateLocalStorage(sortedTasks);
   };
 
   const addTask = (newTask) => {
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
+    updateLocalStorage(updatedTasks);
   };
 
   const toggleTaskDone = (id) => {
@@ -45,11 +29,13 @@ const App = () => {
       task.id === id ? {...task, done: !task.done} : task
     );
     setTasks(updatedTasks);
+    updateLocalStorage(updatedTasks);
   };
 
   const removeTask = (id) => {
     const updatedTasks = tasks.filter((t) => t.id !== id);
     setTasks(updatedTasks);
+    updateLocalStorage(updatedTasks);
   };
 
   const updateTask = ({ taskId, editText, editPriority }) => {
@@ -59,6 +45,7 @@ const App = () => {
       task
     ));
     setTasks(updatedTasks);
+    updateLocalStorage(updatedTasks);
   };
 
   return (
