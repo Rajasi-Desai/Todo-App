@@ -7,7 +7,7 @@ import { getStoredTasks } from "./utils/localStorageUtils";
 import { taskReducer } from "./reducers/taskReducers";
 
 const App = () => {
-  const [tasks, dispatch] = useReducer(taskReducer, undefined, getStoredTasks);
+  const [tasks, dispatch] = useReducer(taskReducer, getStoredTasks());
 
   const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
 
