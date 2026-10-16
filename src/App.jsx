@@ -1,51 +1,58 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import TaskForm from "./components/TaskForm/TaskForm";
 import TaskControls from "./components/TaskControls/TaskControls";
 import TaskList from "./components/TaskList/TaskList";
 import "./App.css"
 import { getStoredTasks, updateLocalStorage } from "./utils/localStorageUtils";
+import { taskReducer } from "./reducers/taskReducers";
 
 const App = () => {
-  const [tasks, setTasks] = useState(getStoredTasks);
+  //const [tasks, setTasks] = useState(getStoredTasks);
+  const [tasks, dispatch] = useReducer(taskReducer, undefined, getStoredTasks);
 
   const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
 
-  const sortTasks = () => {
-    const sortedTasks = [...tasks]
-      .sort((a,b) => (a.priority - b.priority));
-
-    setTasks(sortedTasks);
-    updateLocalStorage(sortedTasks);
-  };
-
   const addTask = (newTask) => {
-    const updatedTasks = [...tasks, newTask];
-    setTasks(updatedTasks);
-    updateLocalStorage(updatedTasks);
-  };
-
-  const toggleTaskDone = (id) => {
-    const updatedTasks = tasks.map((task) => 
-      task.id === id ? {...task, done: !task.done} : task
-    );
-    setTasks(updatedTasks);
-    updateLocalStorage(updatedTasks);
+    dispatch({ type: "ADD", payload: newTask});
+    // const updatedTasks = [...tasks, newTask];
+    // setTasks(updatedTasks);
+    // updateLocalStorage(updatedTasks);
   };
 
   const removeTask = (id) => {
-    const updatedTasks = tasks.filter((t) => t.id !== id);
-    setTasks(updatedTasks);
-    updateLocalStorage(updatedTasks);
+    dispatch({ type: "REMOVE", payload: id});
+    // const updatedTasks = tasks.filter((t) => t.id !== id);
+    // setTasks(updatedTasks);
+    // updateLocalStorage(updatedTasks);
   };
 
   const updateTask = ({ taskId, editText, editPriority }) => {
-    const updatedTasks = tasks.map((task) => (
-      task.id === taskId ? 
-      {...task, text:editText, priority:editPriority} :
-      task
-    ));
-    setTasks(updatedTasks);
-    updateLocalStorage(updatedTasks);
+    dispatch({ type: "UPDATE", payload: { taskId, editText, editPriority }});
+    // const updatedTasks = tasks.map((task) => (
+    //   task.id === taskId ? 
+    //   {...task, text:editText, priority:editPriority} :
+    //   task
+    // ));
+    // setTasks(updatedTasks);
+    // updateLocalStorage(updatedTasks);
+  };
+
+  const toggleTaskDone = (id) => {
+    dispatch({ type: "TOGGLE_DONE", payload: id});
+    // const updatedTasks = tasks.map((task) => 
+    //   task.id === id ? {...task, done: !task.done} : task
+    // );
+    // setTasks(updatedTasks);
+    // updateLocalStorage(updatedTasks);
+  };
+
+  const sortTasks = () => {
+    dispatch({ type: "SORT"});
+    // const sortedTasks = [...tasks]
+    //   .sort((a,b) => (a.priority - b.priority));
+
+    // setTasks(sortedTasks);
+    // updateLocalStorage(sortedTasks);
   };
 
   return (
