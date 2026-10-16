@@ -1,0 +1,47 @@
+@import "../../App.css";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 0.625rem 1.25rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item .icon {
+    color: var(--lightturqoise);
+    margin-right: 0.5rem;
+}
+
+.item span {
+    font-weight: bold;
+}
+
+.brand {
+    font-size: 1.5rem;
+}
+
+.contact {
+    font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        margin-bottom: 0.5rem;
+    }
+}

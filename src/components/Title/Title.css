@@ -1,0 +1,15 @@
+@import "../../App.css";
+
+.title-section {
+    text-align: center;
+    margin: 1.25rem 0;
+}
+
+.title-section h1 {
+    font-size: 1.75rem;
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    padding: 0.625rem;
+    margin: 0;
+}

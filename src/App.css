@@ -1,3 +1,21 @@
+:root {
+    --whitesmoke:     #F6FAFA;
+    --darktuqoise:    #033735;
+    --lightturqoise:  #73e7df;  /* rgb(115 231 223) */
+    --color-dark:       var(--darktuqoise);
+    --color-light:      var(--whitesmoke);
+    --color-primary:    var(--lightturqoise);
+}
+
+html {
+    font-size: 16px;
+}
+
+.app {
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+}
+
 .todo-container {
     padding: 20px;
     font-family: "Arial";
@@ -7,4 +25,10 @@
 
 h2 {
     text-align: center;
+}
+
+@media (max-width: 800px) {
+    .app {
+        margin-top: 10rem;
+    }
 }

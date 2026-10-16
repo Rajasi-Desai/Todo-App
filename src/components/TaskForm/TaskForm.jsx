@@ -23,28 +23,26 @@ const TaskForm = ({ addTask }) => {
   };
 
   return (
-    <div>
-      <div className="task-form-container">
-        <input 
-          type="text" 
-          placeholder="Enter new task"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          className="input-text"
-        />
-        <input 
-          type="number" 
-          min={1}
-          value={newPriority}
-          onChange={(e) => setNewPriority(Number(e.target.value))}
-          className="input-priority"
-        />
-      </div>
+    <div className="task-form-container">
+      <input 
+        type="text" 
+        placeholder="Enter new task"
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        className="input-text"
+      />
+      <input 
+        type="number" 
+        min={1}
+        value={newPriority}
+        onChange={(e) => setNewPriority(Number(e.target.value))}
+        className="input-priority"
+      />
       <button
         onClick={handleSubmit}
         className="add-button"
       >
-        <Plus size={20} />
+        <Plus size={16} />
       </button>
     </div>
   );
