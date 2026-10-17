@@ -2,9 +2,11 @@
     --whitesmoke:     #F6FAFA;
     --darktuqoise:    #033735;
     --lightturqoise:  #73e7df;  /* rgb(115 231 223) */
+    --lightpurple:    #f199ff;
     --color-dark:       var(--darktuqoise);
     --color-light:      var(--whitesmoke);
     --color-primary:    var(--lightturqoise);
+    --color-secondary:  var(--lightpurple)
 }
 
 html {

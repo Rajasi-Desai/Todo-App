@@ -9,15 +9,17 @@ const TaskItem = ({ task, toggleTaskDone, removeTask, setEditingTaskId }) => {
           type="checkbox" 
           checked={task.done}
           onChange={() => toggleTaskDone(task.id)}
+          className="checkbox"
         />
         <span
           className="task-item-text"
           style={{ textDecoration: task.done ? "line-through" : "none" }}
         > 
-          {task.text} 
           <span className="text-item-priority" >
             {task.priority}
           </span>
+          {task.text} 
+          
         </span>
       </div>
       <div className="button-div">

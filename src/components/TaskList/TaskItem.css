@@ -1,3 +1,5 @@
+@import "../../App.css";
+
 .task-item-container {
     display: flex; 
     align-items: center; 
@@ -8,6 +10,11 @@ input {
     margin-right: 10px;
 }
 
+.checkbox {
+    width: 1rem;
+    height: 1rem;
+}
+
 .text-item-text {
     flex-grow: 1;
     display: flex;
@@ -16,14 +23,15 @@ input {
 }
 
 .text-item-priority {
-    background-color: #6f42c1;
-    color: white;
+    background-color: var(--color-secondary);
+    color: black;
     border-radius: 50%;
     padding: 4px 8px;
+    margin-right: 4px;
     font-size: 12px;
     font-weight: bold;
     text-align: center;
-    display: inline-block;
+    display: inline-block;  
 }
 
 .button-div {
@@ -33,18 +41,22 @@ input {
 
 .edit-button {
     border-radius: 50%;
-    background-color: #ffc107;
-    color: black;
+    background-color: #a7a6a3;
+    color: var(--color-dark);
     padding: 10px;
     border: none;
     cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .trash-button {
     border-radius: 50%;
     background-color: red;
-    color: white;
+    color: var(--color-light);
     padding: 10px;
     border: none;
     cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;  
 }
