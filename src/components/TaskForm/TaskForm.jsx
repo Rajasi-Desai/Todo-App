@@ -37,12 +37,13 @@ const TaskForm = ({ addTask }) => {
         value={newPriority}
         onChange={(e) => setNewPriority(Number(e.target.value))}
         className="input-priority"
+        title="Add priority as a number"
       />
       <button
         onClick={handleSubmit}
         className="add-button"
       >
-        <Plus size={16} />
+        <Plus size={25} />  
       </button>
     </div>
   );
