@@ -1,5 +1,4 @@
 import "./Header.css";
-import { House, Phone, Mail } from 'lucide-react';
 
 const Header = () => {
 

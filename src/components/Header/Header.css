@@ -18,21 +18,12 @@
     align-items: center;
 }
 
-.item .icon {
-    color: var(--lightturqoise);
-    margin-right: 0.5rem;
-}
-
 .item span {
     font-weight: bold;
 }
 
 .brand {
     font-size: 1.5rem;
-}
-
-.contact {
-    font-size: 1rem;
 }
 
 @media (max-width: 800px) {
