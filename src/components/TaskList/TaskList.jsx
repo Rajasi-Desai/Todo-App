@@ -3,7 +3,7 @@ import EditTaskForm from "./EditTaskForm";
 import { useState } from "react";
 import "./TaskList.css"
 
-const TaskList = ({ tasks, showOnlyIncomplete, toggleTaskDone, removeTask, updateTask }) => {
+const TaskList = ({ tasks, showOnlyIncomplete }) => {
   const [editingTaskId, setEditingTaskId] = useState(null);
 
   return (
@@ -18,12 +18,9 @@ const TaskList = ({ tasks, showOnlyIncomplete, toggleTaskDone, removeTask, updat
                 (<EditTaskForm 
                   task={task} 
                   setEditingTaskId={setEditingTaskId}
-                  updateTask={updateTask}
                 />) :
                 (<TaskItem 
                   task={task} 
-                  toggleTaskDone={toggleTaskDone}
-                  removeTask={removeTask}
                   setEditingTaskId={setEditingTaskId}
                 />)
               }

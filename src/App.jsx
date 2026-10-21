@@ -7,6 +7,7 @@ import Title from "./components/Title/Title";
 import "./App.css"
 import { getStoredTasks } from "./utils/localStorageUtils";
 import { taskReducer } from "./reducers/taskReducers";
+import { TaskContext } from "./contexts/TaskContext";
 
 const App = () => {
   const [tasks, dispatch] = useReducer(taskReducer, getStoredTasks());
@@ -34,27 +35,26 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <Title />
-        <div className="todo-container">
-          <TaskForm addTask={addTask} />
-          <TaskControls 
-            showOnlyIncomplete={showOnlyIncomplete}
-            setShowOnlyIncomplete={setShowOnlyIncomplete}
-            sortTasks={sortTasks}
-          />
-          <TaskList 
-            tasks={tasks} 
-            showOnlyIncomplete={showOnlyIncomplete}
-            toggleTaskDone={toggleTaskDone}
-            removeTask={removeTask}
-            updateTask={updateTask}
-          />
-        </div>
-      </main>
-    </div>
+    <TaskContext.Provider value={{ removeTask, toggleTaskDone, updateTask }}>
+      <div className="app">
+        <Header />
+        <main>
+          <Title />
+          <div className="todo-container">
+            <TaskForm addTask={addTask} />
+            <TaskControls 
+              showOnlyIncomplete={showOnlyIncomplete}
+              setShowOnlyIncomplete={setShowOnlyIncomplete}
+              sortTasks={sortTasks}
+            />
+            <TaskList 
+              tasks={tasks} 
+              showOnlyIncomplete={showOnlyIncomplete}
+            />
+          </div>
+        </main>
+      </div>
+    </TaskContext.Provider>
   )
 }
 
